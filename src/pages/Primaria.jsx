@@ -53,7 +53,7 @@ export default function Primaria() {
             <div className="relative">
               <div className="absolute -right-10 -top-10 w-64 h-64 bg-blue-100 rounded-full opacity-50"></div>
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl z-10 border-4 border-white">
-                <img src="/galeria1.jpg" alt={`Niños en ${titulo}`} className="w-full h-full object-cover" />
+                <img src="/galeria1.jpg" alt={`Niños en ${titulo}`} width="600" height="400" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function Primaria() {
         </div>
       </section>
 
-      {/*Materias */}
+      {/* Materias */}
       <section className="py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -120,6 +120,8 @@ export default function Primaria() {
                       <img 
                         src={`https://flagcdn.com/w80/${flagCode}.png`} 
                         alt={`Bandera de ${materia}`}
+                        width="48"
+                        height="32"
                         className="w-12 h-8 object-cover rounded shadow-sm group-hover:scale-125 transition-transform"
                       />
                     ) : (

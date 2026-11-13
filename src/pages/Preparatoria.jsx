@@ -22,21 +22,12 @@ export default function Preparatoria() {
   ];
 
   const iconosMaterias = {
-    "Derecho": "⚖️",
-    "Filosofía": "🤔",
-    "Matemáticas": "🧮",
-    "Español": "📖",
-    "Tecnología": "💻",
-    "Música": "🎵",
-    "Pensamiento Lógico": "🧠",
-    "Química": "⚗️"
+    "Derecho": "⚖️", "Filosofía": "🤔", "Matemáticas": "🧮", "Español": "📖",
+    "Tecnología": "💻", "Música": "🎵", "Pensamiento Lógico": "🧠", "Química": "⚗️"
   };
 
-  // Banderas para los idiomas
   const idiomasFlags = { 
-    "Inglés": "gb", 
-    "Francés": "fr", 
-    "Portugués": "br" 
+    "Inglés": "gb", "Francés": "fr", "Portugués": "br" 
   };
 
   return (
@@ -59,7 +50,7 @@ export default function Preparatoria() {
             <div className="relative">
               <div className="absolute -right-10 -top-10 w-64 h-64 bg-purple-100 rounded-full opacity-50"></div>
               <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl z-10 border-4 border-white">
-                <img src="/galeria3.jpg" alt={`Alumnos en ${titulo}`} className="w-full h-full object-cover" />
+                <img src="/galeria3.jpg" alt={`Alumnos en ${titulo}`} width="600" height="400" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -121,7 +112,7 @@ export default function Preparatoria() {
                   </h3>
                   <div className="relative z-10 mt-auto pt-2">
                     {flagCode ? (
-                      <img src={`https://flagcdn.com/w80/${flagCode}.png`} alt={`Bandera`} className="w-12 h-8 object-cover rounded shadow-sm group-hover:scale-125 transition-transform" />
+                      <img src={`https://flagcdn.com/w80/${flagCode}.png`} alt={`Bandera`} width="48" height="32" className="w-12 h-8 object-cover rounded shadow-sm group-hover:scale-125 transition-transform" />
                     ) : (
                       <span className="text-3xl opacity-80 group-hover:opacity-100 group-hover:scale-125 transition-all block">
                         {iconosMaterias[materia] || "🎓"}
