@@ -11,28 +11,23 @@ export default function Home() {
     { nombre: "Rumano", code: "ro" }
   ];
 
-  // ID de tu video de YouTube
-  const youtubeVideoId = "LJM6642-rhw"; 
-
   return (
     <main>
-      {/* Hero Section con Video de YouTube de Fondo */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Hero Section con Video */}
+      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center">
+        {/* Video de fondo */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/video-home.mp4" type="video/mp4" />
+        </video>
         
-        {/* Contenedor del video de fondo (pointer-events-none para que no se pueda hacer clic en el video) */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <iframe
-            className="w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
-            title="Video institucional de APRENDE"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-        
-        {/* Capa oscura para que el texto sea legible */}
-        <div className="absolute inset-0 bg-slate-900/70"></div>
+        {/* Capa para el video */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/50 to-slate-900/90"></div>
 
         {/* Contenido del Hero */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -111,6 +106,7 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
+            {/* Asesoría 1 */}
             <Link to="/asesorias" className="relative overflow-hidden bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group border-t-4 border-t-blue-500 flex flex-col h-full">
               <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-50 rounded-full opacity-60 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10 flex-grow">
@@ -120,6 +116,7 @@ export default function Home() {
               <span className="relative z-10 text-blue-600 font-bold text-sm">Ver más &rarr;</span>
             </Link>
 
+            {/* Asesoría 2 */}
             <Link to="/asesorias" className="relative overflow-hidden bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group border-t-4 border-t-yellow-400 flex flex-col h-full">
               <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-yellow-50 rounded-full opacity-60 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10 flex-grow">
@@ -129,6 +126,7 @@ export default function Home() {
               <span className="relative z-10 text-yellow-600 font-bold text-sm">Ver más &rarr;</span>
             </Link>
 
+            {/* Asesoría 3*/}
             <Link to="/asesorias" className="relative overflow-hidden bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group border-t-4 border-t-pink-500 flex flex-col h-full">
               <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-pink-50 rounded-full opacity-60 group-hover:scale-150 transition-transform duration-500"></div>
               <div className="relative z-10 flex-grow">
@@ -141,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de Idiomas */}
+      {/* Sección de Idiomas*/}
       <section className="bg-white py-24 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -159,8 +157,6 @@ export default function Home() {
                 <img 
                   src={`https://flagcdn.com/w80/${idioma.code}.png`} 
                   alt={`Bandera de ${idioma.nombre}`}
-                  width="64"
-                  height="40"
                   className="w-16 h-10 object-cover rounded shadow-sm mb-4 group-hover:scale-110 transition-transform"
                 />
                 <span className="text-base font-bold text-slate-700 group-hover:text-blue-600 transition-colors">{idioma.nombre}</span>
