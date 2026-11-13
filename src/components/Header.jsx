@@ -47,7 +47,10 @@ export default function Header() {
           </nav>
 
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600 hover:text-blue-600 focus:outline-none">
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              aria-label={isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              className="text-slate-600 hover:text-blue-600 focus:outline-none">
               <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
