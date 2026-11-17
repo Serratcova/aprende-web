@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  // Nuevo estado para el menú desplegable de Oferta Educativa en pantallas táctiles
+  const [isOfertaOpen, setIsOfertaOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50 font-sans">
@@ -25,16 +27,31 @@ export default function Header() {
             <Link to="/" className="hover:text-blue-600 transition-colors">Inicio</Link>
             <Link to="/nosotros" className="hover:text-blue-600 transition-colors">Nosotros</Link>
             
-            {/* Submenú */}
-            <div className="relative group h-full flex items-center">
-              <button className="flex items-center hover:text-blue-600 transition-colors">
+            {/* Submenú Oferta Educativa (Compatible con Hover y Clic) */}
+            <div className="relative group h-full flex items-center z-50">
+              <button 
+                onClick={() => setIsOfertaOpen(!isOfertaOpen)}
+                className="flex items-center hover:text-blue-600 transition-colors focus:outline-none"
+              >
                 Oferta Educativa
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-slate-100 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <Link to="/primaria" className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Primaria</Link>
-                <Link to="/secundaria" className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Secundaria</Link>
-                <Link to="/preparatoria" className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Preparatoria</Link>
-                <Link to="/prepa-sabatina" className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Prepa Sabatina</Link>
+              
+              {/* Capa invisible para cerrar el menú al hacer clic fuera */}
+              {isOfertaOpen && (
+                <div 
+                  className="fixed inset-0 z-40 bg-transparent cursor-default" 
+                  onClick={() => setIsOfertaOpen(false)}
+                ></div>
+              )}
+
+              <div className={`
+                absolute top-full left-0 mt-2 w-48 bg-white border border-slate-100 rounded-md shadow-lg transition-all duration-300 z-50
+                ${isOfertaOpen ? 'opacity-100 visible' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'}
+              `}>
+                <Link to="/primaria" onClick={() => setIsOfertaOpen(false)} className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Primaria</Link>
+                <Link to="/secundaria" onClick={() => setIsOfertaOpen(false)} className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Secundaria</Link>
+                <Link to="/preparatoria" onClick={() => setIsOfertaOpen(false)} className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Preparatoria</Link>
+                <Link to="/prepa-sabatina" onClick={() => setIsOfertaOpen(false)} className="block px-4 py-3 hover:bg-slate-50 hover:text-blue-600">Prepa Sabatina</Link>
               </div>
             </div>
 
@@ -46,6 +63,7 @@ export default function Header() {
             </Link>
           </nav>
 
+          {/* Botón Menú Móvil */}
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
@@ -64,7 +82,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Menú para moviles */}
+      {/* Menú para móviles */}
       <div 
         className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full`}
       >
