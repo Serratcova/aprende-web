@@ -1,2 +1,11 @@
 # APRENDE Centro de Ciencias e Idiomas
+
 > Sitio web institucional para la difusión de la oferta educativa, asesorías e idiomas en Atlacomulco.
+
+## Enlaces Principales
+- [Inicio](https://aprende-ciencias-idiomas.vercel.app/): Página principal.
+- [Primaria](https://aprende-ciencias-idiomas.vercel.app/primaria): Oferta educativa de Primaria.
+- [Secundaria](https://aprende-ciencias-idiomas.vercel.app/secundaria): Oferta educativa de Secundaria.
+- [Preparatoria](https://aprende-ciencias-idiomas.vercel.app/preparatoria): Oferta educativa de Preparatoria.
+- [Asesorías](https://aprende-ciencias-idiomas.vercel.app/asesorias): Cursos y asesorías abiertas al público.
+- [Idiomas](https://aprende-ciencias-idiomas.vercel.app/idiomas): Clases de idiomas.
