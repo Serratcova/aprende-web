@@ -1,16 +1,15 @@
 {
-  "specVersion": "1.0",
+  "specVersion": "1.0.0",
   "host": {
     "displayName": "APRENDE Centro de Ciencias e Idiomas",
     "identifier": "aprende-ciencias-idiomas.vercel.app"
   },
   "entries": [
     {
-      "identifier": "urn:ai:aprende:knowledge:llms-txt",
+      "identifier": "https://aprende-ciencias-idiomas.vercel.app/llms.txt",
       "displayName": "Mapa del sitio para agentes",
       "type": "text/plain",
-      "url": "https://aprende-ciencias-idiomas.vercel.app/llms.txt",
-      "description": "Índice curado de la oferta educativa de APRENDE."
+      "url": "https://aprende-ciencias-idiomas.vercel.app/llms.txt"
     }
   ]
 }
