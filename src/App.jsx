@@ -1,16 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Nosotros from './pages/Nosotros';
-import Primaria from './pages/Primaria';
-import Secundaria from './pages/Secundaria';
-import Preparatoria from './pages/Preparatoria';
-import PrepaSabatina from './pages/PrepaSabatina';
-import Asesorias from './pages/Asesorias';
-import Idiomas from './pages/Idiomas';
-import Inscribete from './pages/Inscribete';
+
+// --- IMPORTACIONES DINÁMICAS (Lazy Loading) ---
+const Home = lazy(() => import('./pages/Home'));
+const Nosotros = lazy(() => import('./pages/Nosotros'));
+const Primaria = lazy(() => import('./pages/Primaria'));
+const Secundaria = lazy(() => import('./pages/Secundaria'));
+const Preparatoria = lazy(() => import('./pages/Preparatoria'));
+const PrepaSabatina = lazy(() => import('./pages/PrepaSabatina'));
+const Asesorias = lazy(() => import('./pages/Asesorias'));
+const Idiomas = lazy(() => import('./pages/Idiomas'));
+const Inscribete = lazy(() => import('./pages/Inscribete'));
 
 // --- ScrollToTop ---
 function ScrollToTop() {
@@ -31,17 +33,20 @@ function App() {
       
       <Header />
       <div className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/nosotros" element={<Nosotros />} />
-          <Route path="/primaria" element={<Primaria />} />
-          <Route path="/secundaria" element={<Secundaria />} />
-          <Route path="/preparatoria" element={<Preparatoria />} />
-          <Route path="/prepa-sabatina" element={<PrepaSabatina />} />
-          <Route path="/asesorias" element={<Asesorias />} />
-          <Route path="/idiomas" element={<Idiomas />} />
-          <Route path="/inscribete" element={<Inscribete />} />
-        </Routes>
+        {/* Envolvemos las rutas en suspense para mostrar un mensaje mientras cargan */}
+        <Suspense fallback={<div className="text-center py-20 text-xl font-bold text-slate-600">Cargando página...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/primaria" element={<Primaria />} />
+            <Route path="/secundaria" element={<Secundaria />} />
+            <Route path="/preparatoria" element={<Preparatoria />} />
+            <Route path="/prepa-sabatina" element={<PrepaSabatina />} />
+            <Route path="/asesorias" element={<Asesorias />} />
+            <Route path="/idiomas" element={<Idiomas />} />
+            <Route path="/inscribete" element={<Inscribete />} />
+          </Routes>
+        </Suspense>
       </div>
       <Footer />
     </div>
